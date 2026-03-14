@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,21 +8,27 @@
 <style>
 body{
 font-family:Arial;
-text-align:center;
 background:#0f172a;
 color:white;
+text-align:center;
 }
 
 .container{
-margin-top:100px;
+margin-top:50px;
+}
+
+video{
+width:500px;
+margin-top:20px;
 }
 
 button{
-padding:15px;
-font-size:18px;
+padding:12px;
+margin:10px;
+font-size:16px;
 background:#22c55e;
 border:none;
-border-radius:8px;
+border-radius:6px;
 cursor:pointer;
 }
 </style>
@@ -28,19 +36,43 @@ cursor:pointer;
 
 <body>
 
-<div class="container">
-
 <h1>ClipMind AI</h1>
-
 <p>Editor de vídeo com inteligência artificial</p>
 
-<input type="file">
+<div class="container">
 
-<br><br>
+<input type="file" id="upload" accept="video/*">
 
-<button>Gerar legenda com IA</button>
+<br>
+
+<video id="video" controls></video>
+
+<br>
+
+<button onclick="gerarLegenda()">Gerar legenda IA</button>
+
+<button onclick="cortarVideo()">Cortar vídeo</button>
 
 </div>
+
+<script>
+
+let video = document.getElementById("video")
+
+document.getElementById("upload").onchange = function(e){
+let file = e.target.files[0]
+video.src = URL.createObjectURL(file)
+}
+
+function gerarLegenda(){
+alert("IA gerando legenda... (versão futura)")
+}
+
+function cortarVideo(){
+alert("Ferramenta de corte em desenvolvimento")
+}
+
+</script>
 
 </body>
 </html>
